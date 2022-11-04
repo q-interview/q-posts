@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from "react";
+import ConsoleLog from "./ConsoleLog";
 
 const MESSAGE_STYLE = {
   indentedSmall: "indentedSmall",
@@ -14,7 +15,11 @@ const Message: FC<MessageProps> = ({
   message,
   type = "normalMessage",
 }): ReactElement => {
-  return <p className={MESSAGE_STYLE[type]}>{message}</p>;
+  return (
+    <ConsoleLog componentName={Message.name}>
+      <p className={MESSAGE_STYLE[type]}>{message}</p>
+    </ConsoleLog>
+  );
 };
 
 export default Message;

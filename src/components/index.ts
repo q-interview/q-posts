@@ -6,3 +6,4 @@ export { default as ThemeProvider } from "./ThemeProvider";
 export { default as UserFilter } from "./UserFilter";
 export { default as UserInfo } from "./UserInfo";
 export { default as Comments } from "./comments";
+export { default as ConsoleLog } from "./ConsoleLog";

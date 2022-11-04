@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from "react";
 import { IPost } from "../@types/Post";
-import { SectionWrapper } from "../components";
+import { ConsoleLog, SectionWrapper } from "../components";
 import { api } from "../consts";
 import { usePagination } from "../hooks";
 import { actions, useStore } from "../store";
@@ -30,10 +30,12 @@ const PostsWrapper = (): ReactElement => {
 
   return (
     <SectionWrapper>
-      {posts.map((post) => (
-        <Post post={post} key={post.id} />
-      ))}
-      {hasMoreItems && <h1 ref={sentryRef}>Loading ...</h1>}
+      <ConsoleLog componentName={PostsWrapper.name}>
+        {posts.map((post) => (
+          <Post post={post} key={post.id} />
+        ))}
+        {hasMoreItems && <h1 ref={sentryRef}>Loading ...</h1>}
+      </ConsoleLog>
     </SectionWrapper>
   );
 };

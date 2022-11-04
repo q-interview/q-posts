@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { IPost } from "../@types/Post";
 import { IUser } from "../@types/User";
-import { SectionWrapper } from "../components";
+import { ConsoleLog, SectionWrapper } from "../components";
 import { api } from "../consts";
 import { useFetch } from "../hooks";
 import { UserInfo, Comments } from "../components";
@@ -14,11 +14,13 @@ const PostDetails: FC<PostDetailsProps> = ({ post }): ReactElement => {
   const { data: user } = useFetch<IUser>(`${api.USERS_ROUTE}/${post.userId}`);
   return (
     <SectionWrapper>
-      <div className="border-2 border-black p-4">
-        <UserInfo name={user?.name ?? "Anonymous"} />
-        <h1 className="text-xl textColor">{post.title}</h1>
-        <Comments postId={post.id} showAll limit={api.DEFAULT_LIMIT} />
-      </div>
+      <ConsoleLog componentName={PostDetails.name}>
+        <div className="border-2 border-black p-4">
+          <UserInfo name={user?.name ?? "Anonymous"} />
+          <h1 className="text-xl textColor">{post.title}</h1>
+          <Comments postId={post.id} showAll limit={api.DEFAULT_LIMIT} />
+        </div>
+      </ConsoleLog>
     </SectionWrapper>
   );
 };
