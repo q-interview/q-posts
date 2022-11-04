@@ -15,8 +15,6 @@ export default function useFetch<T>(route: string): Return<T> {
       try {
         const response = await http<T>({ url: route });
         setData(response);
-      } catch (err) {
-        throw err;
       } finally {
         setLoading(false);
       }

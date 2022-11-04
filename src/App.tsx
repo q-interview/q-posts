@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from "react";
+import React, { useMemo, useReducer } from "react";
 import { initialState, reducer, Store } from "./store";
 import Layout from "./Layout";
 import ThemeProvider from "./components/ThemeProvider";
