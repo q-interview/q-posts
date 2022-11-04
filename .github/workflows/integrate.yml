@@ -12,16 +12,16 @@ jobs:
       - uses: actions/setup-node@v2
 
       - name: Installing package manager
-          run: npm i -g yarn
+        run: npm i -g yarn
 
       - name: Installing dependencies
-          run: yarn
+        run: yarn
 
-      - name: Run test   
-          run: yarn test
+      - name: Run test
+        run: yarn test
 
       - name: Shadow build test
-          run: yarn husky-build
+        run: yarn husky-build
 
       - name: Check code linting
-          run: yarn lint
+        run: yarn lint
