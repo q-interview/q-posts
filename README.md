@@ -41,6 +41,7 @@ All the packages used have MIT license
 - [@heroicons/react](https://github.com/tailwindlabs/heroicons) -> Part of the tailwind css ecosystem to make beautiful UI
 - [jest](https://jestjs.io/) -> Testing library for Unit testing
 - [@testing-library](https://testing-library.com/) -> Testing framework used for testing React UI with jest
+- [@swc](https://swc.rs/) -> Compiler added for tests since it is faster than babel and it doesn't have cold start
 - [eslint](https://eslint.org/) -> Code linter
 - [husky](https://typicode.github.io/husky/#/) -> Tool used for pre-commit hooks to help in preventing production crashes
 - [prettier](https://prettier.io/) -> Code formatting
