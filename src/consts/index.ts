@@ -1,5 +1,4 @@
-import * as api from "./api";
-import * as env from "./env";
-import * as tests from "./tests";
-
-export { api, env, tests };
+export * as api from "./api";
+export * as env from "./env";
+export * as tests from "./tests";
+export * as theme from "./theme";

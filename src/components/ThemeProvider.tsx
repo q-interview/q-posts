@@ -1,23 +1,21 @@
-import React, { FC, ReactElement } from "react";
-import { useStore } from "../store";
+import React, { FC, ReactElement, useEffect, useState } from "react";
+import { THEME_CHANGE } from "../events";
+import { isThemeDark } from "../utils";
 
 interface ThemeProviderProps {
   children: ReactElement;
 }
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }): ReactElement => {
-  const { darkTheme } = useStore();
+  const [darkTheme, setDarkTheme] = useState(isThemeDark());
 
-  //Tu du still
-  // useEffect(() => {
-  //   const savedTheme = localStorage.getItem("darkTheme") ?? false;
+  useEffect(() => {
+    const updateTheme = () => setDarkTheme(isThemeDark());
 
-  //   dispatch(actions.setDifferentTheme(!!savedTheme));
+    window.addEventListener(THEME_CHANGE, updateTheme);
 
-  //   return () => localStorage.setItem("darkTheme", JSON.stringify(darkTheme));
-
-  //   //eslint-disable-next-line
-  // }, []);
+    return () => window.removeEventListener(THEME_CHANGE, updateTheme);
+  }, []);
 
   return <div className={`${darkTheme && "dark"}`}>{children}</div>;
 };
