@@ -1,10 +1,10 @@
 import React, { ReactElement, useEffect } from "react";
 import { IPost } from "../@types/Post";
-import SectionWrapper from "../components/SectionWrapper";
+import { SectionWrapper } from "../components";
 import { api } from "../consts";
 import { usePagination } from "../hooks";
 import { actions, useStore } from "../store";
-import Post from "./Post";
+import { Post } from "../posts-main";
 
 const PostsWrapper = (): ReactElement => {
   const { dispatch, selectedUser } = useStore();

@@ -1,12 +1,10 @@
 import React, { FC, ReactElement } from "react";
 import { IPost } from "../@types/Post";
-import Message from "../components/Message";
-import Comments from "../components/comments";
+import { Message, Comments, UserInfo } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks";
 import { IUser } from "../@types/User";
 import { api } from "../consts";
-import UserInfo from "../components/UserInfo";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 
 interface PostProps {

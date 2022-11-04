@@ -1,3 +1,1 @@
-import http from "./http";
-
-export default http;
+export { default as http } from "./http";

@@ -1,11 +1,10 @@
 import React, { FC, ReactElement } from "react";
 import { IPost } from "../@types/Post";
 import { IUser } from "../@types/User";
-import Comments from "../components/comments";
-import SectionWrapper from "../components/SectionWrapper";
-import UserInfo from "../components/UserInfo";
+import { SectionWrapper } from "../components";
 import { api } from "../consts";
 import { useFetch } from "../hooks";
+import { UserInfo, Comments } from "../components";
 
 interface PostDetailsProps {
   post: IPost;
