@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setSelectedTheme } from "../events";
 import { isThemeDark } from "../utils";
 import { UserFilter, CustomCheck } from "../components";
+import ConsoleLog from "./ConsoleLog";
 
 const Header = (): ReactElement => {
   const navigate = useNavigate();
@@ -18,27 +19,29 @@ const Header = (): ReactElement => {
   const handleClickOnHeading = () => navigate("posts");
 
   return (
-    <nav className="sticky top-0 z-30 w-full px-2 py-4 bg-white dark:bg-black sm:px-4 shadow-xl">
-      <div className="flex justify-between items-center mx-24">
-        <h1
-          className="text-lg cursor-pointer textColor"
-          onClick={handleClickOnHeading}
-        >
-          Posts
-        </h1>
-        <UserFilter />
-        <div className="flexCenter">
-          <SunIcon className="headerIcons textColor" />
-          <CustomCheck
-            inputProps={{
-              onChange: handleTheme,
-              defaultChecked: darkTheme,
-            }}
-          />
-          <MoonIcon className="headerIcons textColor" />
+    <ConsoleLog componentName={Header.name}>
+      <nav className="sticky top-0 z-30 w-full px-2 py-4 bg-white dark:bg-black sm:px-4 shadow-xl">
+        <div className="flex justify-between items-center mx-24">
+          <h1
+            className="text-lg cursor-pointer textColor"
+            onClick={handleClickOnHeading}
+          >
+            Posts
+          </h1>
+          <UserFilter />
+          <div className="flexCenter">
+            <SunIcon className="headerIcons textColor" />
+            <CustomCheck
+              inputProps={{
+                onChange: handleTheme,
+                defaultChecked: darkTheme,
+              }}
+            />
+            <MoonIcon className="headerIcons textColor" />
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </ConsoleLog>
   );
 };
 

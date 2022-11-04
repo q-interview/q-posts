@@ -3,6 +3,7 @@ import { IComment } from "../../@types/Comment";
 import { api } from "../../consts";
 import { usePagination } from "../../hooks";
 import { CommentsLoader } from "../../laoders";
+import ConsoleLog from "../ConsoleLog";
 import Comment from "./Comment";
 
 interface CommentsWrapperProps {
@@ -26,16 +27,18 @@ const CommentsWrapper: FC<CommentsWrapperProps> = ({
   });
 
   return (
-    <div className="flex flex-col justify-center  ">
-      {comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          message={comment.body}
-          username={comment.email}
-        />
-      ))}
-      {showAll && hasMoreItems && <CommentsLoader sentryRef={sentryRef} />}
-    </div>
+    <ConsoleLog componentName={CommentsWrapper.name}>
+      <div className="flex flex-col justify-center  ">
+        {comments.map((comment) => (
+          <Comment
+            key={comment.id}
+            message={comment.body}
+            username={comment.email}
+          />
+        ))}
+        {showAll && hasMoreItems && <CommentsLoader sentryRef={sentryRef} />}
+      </div>
+    </ConsoleLog>
   );
 };
 

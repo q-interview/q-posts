@@ -1,6 +1,7 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { THEME_CHANGE } from "../events";
 import { isThemeDark } from "../utils";
+import ConsoleLog from "./ConsoleLog";
 
 interface ThemeProviderProps {
   children: ReactElement;
@@ -17,7 +18,11 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }): ReactElement => {
     return () => window.removeEventListener(THEME_CHANGE, updateTheme);
   }, []);
 
-  return <div className={`${darkTheme && "dark"}`}>{children}</div>;
+  return (
+    <ConsoleLog componentName={ThemeProvider.name}>
+      <div className={`${darkTheme && "dark"}`}>{children}</div>
+    </ConsoleLog>
+  );
 };
 
 export default ThemeProvider;
