@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .textColor {
+    @apply text-gray-900 dark:text-gray-300;
+  }
+
+  .flexCenter {
+    @apply flex items-center;
+  }
+
+  .normalMessage {
+    @apply text-xl p-2;
+  }
+
+  .indentedSmall {
+    @apply pl-8 text-sm;
+  }
+
+  .headerIcons {
+    @apply ml-3 mr-3 h-5 w-5;
+  }
+}
