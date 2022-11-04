@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import http from "../http";
+import { http } from "../http";
 
 interface Return<T> {
   data: T | null;

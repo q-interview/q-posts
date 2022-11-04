@@ -1,7 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import Message from "../Message";
-import UserInfo from "../UserInfo";
-
+import { Message, UserInfo } from "../../components";
 interface CommentProps {
   message: string;
   username: string;

@@ -1,10 +1,9 @@
 import React, { ChangeEvent, ReactElement } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
-import CustomCheck from "./CustomCheck";
 import { useNavigate } from "react-router-dom";
-import UserFilter from "./UserFilter";
 import { setSelectedTheme } from "../events";
 import { isThemeDark } from "../utils";
+import { UserFilter, CustomCheck } from "../components";
 
 const Header = (): ReactElement => {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import useInfiniteScroll, {
   UseInfiniteScrollHookRefCallback,
 } from "react-infinite-scroll-hook";
-import http from "../http";
+import { http } from "../http";
 
 interface PaginationProps {
   route: string;

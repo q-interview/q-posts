@@ -1,7 +1,7 @@
 import React from "react";
-import SectionWrapper from "../components/SectionWrapper";
 import NotFoundImg from "../assets/NotFoundImg.jpg";
 import { useNavigate } from "react-router-dom";
+import { SectionWrapper } from "../components";
 
 const NotFound = () => {
   const navigate = useNavigate();

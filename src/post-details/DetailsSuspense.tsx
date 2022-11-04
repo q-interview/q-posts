@@ -2,10 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IPost } from "../@types/Post";
 import { api } from "../consts";
-import http from "../http";
-import NotFound from "../not-found";
+import { http } from "../http";
+import { NotFound } from "../not-found";
 import { actions, useStore } from "../store";
-import PostDetails from "./PostDetails";
+import { PostDetails } from "../post-details";
 
 const PostPageSuspense = () => {
   const params = useParams();

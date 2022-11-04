@@ -1,8 +1,8 @@
 import React from "react";
 import { RouteProps } from "react-router-dom";
-import NotFound from "../not-found";
-import DetailsSuspense from "../post-details/DetailsSuspense";
-import PostsWrapper from "../posts-main";
+import { NotFound } from "../not-found";
+import { DetailsSuspense } from "../post-details";
+import { PostsWrapper } from "../posts-main";
 import Redirect from "./utils/Redirect";
 
 type RouteConfig = { key: string } & RouteProps;
