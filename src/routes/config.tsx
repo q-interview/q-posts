@@ -1,3 +1,4 @@
+import React from "react";
 import { RouteProps } from "react-router-dom";
 import NotFound from "../not-found";
 import DetailsSuspense from "../post-details/DetailsSuspense";

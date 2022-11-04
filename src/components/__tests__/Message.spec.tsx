@@ -1,4 +1,5 @@
 import { render } from "@testing-library/react";
+import React from "react";
 import Message, { MessageProps } from "../Message";
 
 const renderMessage = (props: MessageProps) => ({
