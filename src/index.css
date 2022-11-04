@@ -22,4 +22,8 @@
   .headerIcons {
     @apply ml-3 mr-3 h-5 w-5;
   }
+
+  .styledSection {
+    @apply p-4 mx-auto max-w-7xl space-y-3 flexCenter flex-col textColor;
+  }
 }

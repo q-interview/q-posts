@@ -1,7 +1,7 @@
 import React from "react";
 import NotFoundImg from "../assets/NotFoundImg.jpg";
 import { useNavigate } from "react-router-dom";
-import { ConsoleLog, SectionWrapper } from "../components";
+import { ConsoleLog } from "../components";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const NotFound = () => {
 
   return (
     <ConsoleLog componentName={NotFound.name}>
-      <SectionWrapper>
+      <section className="styledSection">
         <img
           src={NotFoundImg}
           alt="Lost Windows XP dog"
@@ -23,7 +23,7 @@ const NotFound = () => {
         >
           Go home buddy
         </button>
-      </SectionWrapper>
+      </section>
     </ConsoleLog>
   );
 };
