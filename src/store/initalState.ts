@@ -2,7 +2,6 @@ import { createContext, Dispatch, useContext } from "react";
 import { IPost } from "../@types/Post";
 
 export type State = {
-  darkTheme: boolean;
   savedPosts: IPost[];
   selectedUser: number;
   dispatch: Dispatch<Action>;
@@ -10,11 +9,10 @@ export type State = {
 
 export interface Action {
   type: string;
-  payload?: boolean | IPost[] | number;
+  payload?: IPost[] | number;
 }
 
 export const initialState: State = {
-  darkTheme: false,
   savedPosts: [],
   selectedUser: 0,
   dispatch: () => true,
