@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import useInfiniteScroll, {
-  UseInfiniteScrollHookRefCallback,
-} from "react-infinite-scroll-hook";
+import useInfiniteScroll from "react-infinite-scroll-hook";
+import { SentryRefProp } from "../@types/SentryRef";
 import { http } from "../http";
 
 interface PaginationProps {
@@ -10,10 +9,10 @@ interface PaginationProps {
   apiFilters?: string;
 }
 
-interface PaginationReturn<T> {
+interface PaginationReturn<T> extends SentryRefProp {
   items: T[];
-  hasMoreItems: boolean;
-  sentryRef: UseInfiniteScrollHookRefCallback;
+  loading: boolean;
+  hasNextPage: boolean;
   loadData: (reset?: boolean) => void;
 }
 
@@ -37,6 +36,7 @@ export default function usePagination<T>({
         setHasNextPage(false);
       } else {
         setStart((prev) => prev + limit);
+        setLoading(true);
       }
     },
     [limit]
@@ -62,7 +62,7 @@ export default function usePagination<T>({
         } else {
           setItems((prev) => [...prev, ...response]);
         }
-        setHasNextPage(!!response.length);
+        setHasNextPage(!!Math.floor(response.length / limit));
       } catch (err) {
         setDisabled(true);
         throw err;
@@ -72,5 +72,5 @@ export default function usePagination<T>({
     })();
   }, [apiFilters, limit, route, start]);
 
-  return { items, hasMoreItems: loading || hasNextPage, loadData, sentryRef };
+  return { items, loading, hasNextPage, loadData, sentryRef };
 }

@@ -18,7 +18,7 @@ const PostDetails: FC<PostDetailsProps> = ({ post }): ReactElement => {
         <div className="border-2 border-black p-4">
           <UserInfo name={user?.name ?? "Anonymous"} />
           <h1 className="text-xl textColor">{post.title}</h1>
-          <Comments postId={post.id} showAll limit={api.DEFAULT_LIMIT} />
+          <Comments postId={post.id} limit={api.DEFAULT_LIMIT} />
         </div>
       </section>
     </ConsoleLog>

@@ -1,7 +1,9 @@
 import React from "react";
 
 const MessageSkeleton = () => {
-  return <div className="h-5 mx-5 my-3 bg-slate-200 rounded max-w-3xl"></div>;
+  return (
+    <div className="w-full/2 h-10 bg-gray-400 m-4 rounded-2xl animate-pulse"></div>
+  );
 };
 
 export default MessageSkeleton;
