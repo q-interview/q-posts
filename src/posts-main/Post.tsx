@@ -19,11 +19,11 @@ const Post: FC<PostProps> = ({ post }): ReactElement => {
   const handlePostDetails = () => navigate(`${post.id}`);
 
   return (
-    <div
-      onClick={handlePostDetails}
-      className="w-full bg-slate-300 dark:bg-slate-600 rounded cursor-pointer shadow-xl dark:shadow-gray-600/50"
-    >
-      <div className="flexCenter justify-between p-1">
+    <div className="w-full bg-slate-300 dark:bg-slate-600 rounded  shadow-xl dark:shadow-gray-600/50">
+      <div
+        onClick={handlePostDetails}
+        className="flexCenter justify-between p-1 cursor-pointer"
+      >
         <UserInfo name={user?.name ?? "Deleted User"} postTitle={post.title} />
         <EllipsisVerticalIcon className="h-6 w-6 cursor-not-allowed" />
       </div>

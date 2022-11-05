@@ -21,6 +21,7 @@ const CommentsWrapper: FC<CommentsWrapperProps> = ({
     items: comments,
     hasMoreItems,
     sentryRef,
+    loadData,
   } = usePagination<IComment>({
     route: `${api.POSTS_ROUTE}/${postId}/${api.COMMENTS_ROUTE}`,
     limit: limit ?? api.COMMENTS_PER_POST_MAIN_PAGE,
@@ -36,7 +37,21 @@ const CommentsWrapper: FC<CommentsWrapperProps> = ({
             username={comment.email}
           />
         ))}
-        {showAll && hasMoreItems && <CommentsLoader sentryRef={sentryRef} />}
+        {hasMoreItems && (
+          //TO DO  - Cleanup once u do the loaders :)
+          <>
+            {showAll ? (
+              <CommentsLoader sentryRef={sentryRef} />
+            ) : (
+              <button
+                className="p-4 hover:text-blue-400 "
+                onClick={() => loadData()}
+              >
+                Load more comments
+              </button>
+            )}
+          </>
+        )}
       </div>
     </ConsoleLog>
   );
