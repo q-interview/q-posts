@@ -1,3 +1,4 @@
+import { api } from "../consts";
 import { API_BASE_URL } from "../consts/env";
 
 type HTTPMethods = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
@@ -14,7 +15,7 @@ const http = async <T>({ route, method, body }: FetchOptions): Promise<T> => {
     headers: {
       "Content-Type": "application/json",
     },
-    method: method ?? "GET",
+    method: method ?? api.GET_METHOD,
   });
 
   if (response.ok) {
