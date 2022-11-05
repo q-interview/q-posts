@@ -20,8 +20,8 @@ const Header = (): ReactElement => {
 
   return (
     <ConsoleLog componentName={Header.name}>
-      <nav className="sticky top-0 z-30 w-full px-2 py-4 bg-white dark:bg-black sm:px-4 shadow-xl">
-        <div className="flex justify-between items-center mx-24">
+      <nav className="sticky top-0 z-30 w-full px-2 py-4 bg-white dark:bg-black shadow-xl">
+        <div className="flexCenter justify-evenly ">
           <h1
             className="text-lg cursor-pointer textColor"
             onClick={handleClickOnHeading}

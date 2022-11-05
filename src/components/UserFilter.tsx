@@ -15,7 +15,10 @@ const UserFilter = () => {
 
   return (
     <ConsoleLog componentName={UserFilter.name}>
-      <select className="w-40" onChange={handleChange}>
+      <select
+        className="w-40 bg-white dark:bg-black textColor"
+        onChange={handleChange}
+      >
         <option value={0}>All People</option>
         {users?.map((user) => (
           <option key={user.name} value={user.id}>
