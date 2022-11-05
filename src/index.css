@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply h-full;
+  }
+}
+
 @layer components {
   .textColor {
     @apply text-gray-900 dark:text-gray-300;
