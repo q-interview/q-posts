@@ -5,19 +5,21 @@ import { api } from "../consts";
 import { usePagination } from "../hooks";
 import { actions, useStore } from "../store";
 import { Post } from "../posts-main";
+import PostsSkeleton from "../laoders/PostsSkeleton";
 
 const PostsWrapper = (): ReactElement => {
   const { dispatch, selectedUser } = useStore();
 
   const {
     items: posts,
-    hasMoreItems,
+    loading,
+    hasNextPage,
     loadData,
     sentryRef,
   } = usePagination<IPost>({
     route: api.POSTS_ROUTE,
     limit: api.DEFAULT_LIMIT,
-    apiFilters: `${selectedUser ? `&userId=${selectedUser}` : undefined}`,
+    apiFilters: `${selectedUser ? `&userId=${selectedUser}` : ""}`,
   });
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const PostsWrapper = (): ReactElement => {
         {posts.map((post) => (
           <Post post={post} key={post.id} />
         ))}
-        {hasMoreItems && <h1 ref={sentryRef}>Loading ...</h1>}
+        {(loading || hasNextPage) && <PostsSkeleton sentryRef={sentryRef} />}
       </section>
     </ConsoleLog>
   );
