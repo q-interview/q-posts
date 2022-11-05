@@ -19,8 +19,7 @@ Object.defineProperty(window, "IntersectionObserver", {
   value: MockIntersectionObserver,
 });
 
-Object.defineProperty(global, "IntersectionObserver", {
-  writable: true,
-  configurable: true,
-  value: MockIntersectionObserver,
-});
+window.console = {
+  // disabled due to not spamming when ConsoleLog component hits :)
+  log: jest.fn(),
+};
