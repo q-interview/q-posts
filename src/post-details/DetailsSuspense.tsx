@@ -20,7 +20,7 @@ const PostPageSuspense = () => {
 
   useEffect(() => {
     if (!storedPost) {
-      http<IPost>({ url: `${api.POSTS_ROUTE}/${params.postId}` })
+      http<IPost>({ route: `${api.POSTS_ROUTE}/${params.postId}` })
         .then((data) => dispatch(actions.setFetchedPosts([data])))
         .finally(() => setLoading(false));
     }

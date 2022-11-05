@@ -3,13 +3,13 @@ import { API_BASE_URL } from "../consts/env";
 type HTTPMethods = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
 interface FetchOptions {
-  url: string;
+  route: string;
   method?: HTTPMethods;
   body?: BodyInit;
 }
 
-const http = async <T>({ url, method, body }: FetchOptions): Promise<T> => {
-  const response = await fetch(`${API_BASE_URL}/${url}`, {
+const http = async <T>({ route, method, body }: FetchOptions): Promise<T> => {
+  const response = await fetch(`${API_BASE_URL}/${route}`, {
     body,
     headers: {
       "Content-Type": "application/json",

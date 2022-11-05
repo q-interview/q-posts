@@ -13,7 +13,7 @@ export default function useFetch<T>(route: string): Return<T> {
   useEffect(() => {
     (async () => {
       try {
-        const response = await http<T>({ url: route });
+        const response = await http<T>({ route });
         setData(response);
       } finally {
         setLoading(false);

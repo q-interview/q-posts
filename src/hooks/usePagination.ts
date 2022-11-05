@@ -54,7 +54,7 @@ export default function usePagination<T>({
     (async () => {
       try {
         const response = await http<T[]>({
-          url: `${route}?_start=${start}&_limit=${limit}${apiFilters ?? ""}`,
+          route: `${route}?_start=${start}&_limit=${limit}${apiFilters ?? ""}`,
         });
 
         if (!start) {
