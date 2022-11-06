@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IPost } from "../@types/Post";
-import { api } from "../consts";
 import { http } from "../http";
 import { NotFound } from "../not-found";
 import { actions, useStore } from "../store";
 import { PostDetails } from "../post-details";
+import { PostDetailsSkeleton } from "../loaders";
+import { ENV } from "../env";
 
 const PostPageSuspense = () => {
   const params = useParams();
@@ -20,14 +21,14 @@ const PostPageSuspense = () => {
 
   useEffect(() => {
     if (!storedPost) {
-      http<IPost>({ route: `${api.POSTS_ROUTE}/${params.postId}` })
+      http<IPost>({ route: `${ENV.Q_POSTS_ROUTE}/${params.postId}` })
         .then((data) => dispatch(actions.setFetchedPosts([data])))
         .finally(() => setLoading(false));
     }
   }, [dispatch, params.postId, storedPost]);
 
   if (loading) {
-    return <h1>loading...</h1>;
+    return <PostDetailsSkeleton />;
   }
 
   if (storedPost) {

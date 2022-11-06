@@ -30,6 +30,10 @@
   }
 
   .styledSection {
-    @apply p-4 mx-auto max-w-7xl space-y-3 flexCenter flex-col textColor;
+    @apply p-4 mx-auto max-w-7xl space-y-4 flexCenter flex-col textColor;
+  }
+
+  .postDetailsWrapper {
+    @apply border-2 border-black dark:border-white p-4;
   }
 }

@@ -1,6 +1,6 @@
 import { createContext, Dispatch, useContext } from "react";
 import { IPost } from "../@types/Post";
-import { console } from "../consts";
+import { ENV } from "../env";
 
 export type State = {
   savedPosts: IPost[];
@@ -16,7 +16,7 @@ export interface Action {
 
 export const initialState: State = {
   savedPosts: [],
-  consoleMessage: console.CONSOLE_GREETING_MESSAGE,
+  consoleMessage: ENV.Q_CONSOLE_GREETING_MESSAGE,
   selectedUser: 0,
   dispatch: () => true,
 };

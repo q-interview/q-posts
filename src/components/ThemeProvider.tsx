@@ -1,5 +1,5 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
-import { THEME_CHANGE } from "../events";
+import { ENV } from "../env";
 import { isThemeDark } from "../utils";
 import ConsoleLog from "./ConsoleLog";
 
@@ -13,9 +13,10 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }): ReactElement => {
   useEffect(() => {
     const updateTheme = () => setDarkTheme(isThemeDark());
 
-    window.addEventListener(THEME_CHANGE, updateTheme);
+    window.addEventListener(ENV.Q_THEME_CHANGE_EVENT, updateTheme);
 
-    return () => window.removeEventListener(THEME_CHANGE, updateTheme);
+    return () =>
+      window.removeEventListener(ENV.Q_THEME_CHANGE_EVENT, updateTheme);
   }, []);
 
   return (

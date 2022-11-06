@@ -27,5 +27,6 @@
     "strictMode": false,
     "lazy": false,
     "noInterop": false
-  }
+  },
+  "isModule": true
 }

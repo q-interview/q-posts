@@ -8,6 +8,7 @@ Posts regarding latest and greatest in the tech world!
   - Instal [node](https://nodejs.org/en/) (16.10.0 is preferred version)
   - Installing [yarn](https://classic.yarnpkg.com/lang/en/docs/cli/install/), or `nmp i -g yarn`
   - Run following command `yarn`
+  - Run `yarn setup::dev` to setup .env.local file for local development
   - For best experience use [VS Code](https://code.visualstudio.com/)
   - Extensions: [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
@@ -15,6 +16,7 @@ Posts regarding latest and greatest in the tech world!
 
 - yarn dev -> Run app on localhost for development (HMR)
 - yarn build -> Build for production
+- yarn setup::dev -> Creates started .env.local for local development
 - yarn preview -> Preview as a deployed app
 - yarn lint -> Linter check of code
 - yarn test -> Run jest tests

@@ -4,8 +4,8 @@ import { Message, Comments, UserInfo } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks";
 import { IUser } from "../@types/User";
-import { api } from "../consts";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import { ENV } from "../env";
 
 interface PostProps {
   post: IPost;
@@ -14,7 +14,9 @@ interface PostProps {
 const Post: FC<PostProps> = ({ post }): ReactElement => {
   const navigate = useNavigate();
 
-  const { data: user } = useFetch<IUser>(`${api.USERS_ROUTE}/${post.userId}`);
+  const { data: user, loading: loadingUser } = useFetch<IUser>(
+    `${ENV.Q_USERS_ROUTE}/${post.userId}`
+  );
 
   const handlePostDetails = () => navigate(`${post.id}`);
 
@@ -24,7 +26,11 @@ const Post: FC<PostProps> = ({ post }): ReactElement => {
         onClick={handlePostDetails}
         className="flexCenter justify-between p-1 cursor-pointer"
       >
-        <UserInfo name={user?.name ?? "Deleted User"} postTitle={post.title} />
+        <UserInfo
+          loadingUser={loadingUser}
+          name={user?.name ?? "Deleted User"}
+          postTitle={post.title}
+        />
         <EllipsisVerticalIcon className="h-6 w-6 cursor-not-allowed" />
       </div>
       <hr className="bg-gray-900 dark:bg-gray-300" />

@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import { IComment } from "../../@types/Comment";
-import { api } from "../../consts";
+import { ENV } from "../../env";
 import { usePagination } from "../../hooks";
-import { CommentsSkeleton } from "../../laoders";
+import { CommentsSkeleton } from "../../loaders";
 import ConsoleLog from "../ConsoleLog";
 import Comment from "./Comment";
 
@@ -21,8 +21,8 @@ const CommentsWrapper: FC<CommentsWrapperProps> = ({
     hasNextPage,
     loadData,
   } = usePagination<IComment>({
-    route: `${api.POSTS_ROUTE}/${postId}/${api.COMMENTS_ROUTE}`,
-    limit: limit ?? api.COMMENTS_PER_POST_MAIN_PAGE,
+    route: `${ENV.Q_POSTS_ROUTE}/${postId}/${ENV.Q_COMMENTS_ROUTE}`,
+    limit: limit ?? +ENV.Q_COMMENTS_PER_POST_MAIN_PAGE,
   });
 
   return (
