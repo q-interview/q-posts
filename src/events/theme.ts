@@ -1,15 +1,15 @@
-export const THEME_CHANGE = "THEME_CHANGE";
+import { ENV } from "../env";
 
 export const fireThemeChange = () =>
-  window.dispatchEvent(new Event(THEME_CHANGE));
+  window.dispatchEvent(new Event(ENV.Q_THEME_CHANGE_EVENT));
 
 export const setSelectedTheme = (checked: boolean) => {
-  let theme = "light";
+  let theme = ENV.Q_THEME_LIGHT;
 
   if (checked) {
-    theme = "dark";
+    theme = ENV.Q_THEME_DARK;
   }
 
-  localStorage.setItem("theme", theme);
+  localStorage.setItem(ENV.Q_THEME_KEY, theme);
   fireThemeChange();
 };

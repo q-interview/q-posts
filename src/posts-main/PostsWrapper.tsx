@@ -1,11 +1,11 @@
 import React, { ReactElement, useEffect } from "react";
 import { IPost } from "../@types/Post";
 import { ConsoleLog } from "../components";
-import { api } from "../consts";
 import { usePagination } from "../hooks";
 import { actions, useStore } from "../store";
 import { Post } from "../posts-main";
-import PostsSkeleton from "../laoders/PostsSkeleton";
+import PostsSkeleton from "../loaders/PostsSkeleton";
+import { ENV } from "../env";
 
 const PostsWrapper = (): ReactElement => {
   const { dispatch, selectedUser } = useStore();
@@ -17,8 +17,8 @@ const PostsWrapper = (): ReactElement => {
     loadData,
     sentryRef,
   } = usePagination<IPost>({
-    route: api.POSTS_ROUTE,
-    limit: api.DEFAULT_LIMIT,
+    route: ENV.Q_POSTS_ROUTE,
+    limit: +ENV.Q_DEFAULT_LIMIT,
     apiFilters: `${selectedUser ? `&userId=${selectedUser}` : ""}`,
   });
 

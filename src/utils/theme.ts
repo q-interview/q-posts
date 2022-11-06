@@ -1,4 +1,4 @@
-import { theme } from "../consts";
+import { ENV } from "../env";
 
 export const isThemeDark = () =>
-  localStorage.getItem(theme.THEME_KEY) === theme.DARK;
+  localStorage.getItem(ENV.Q_THEME_KEY) === ENV.Q_THEME_DARK;

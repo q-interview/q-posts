@@ -1,5 +1,4 @@
-import { api } from "../consts";
-import { API_BASE_URL } from "../consts/env";
+import { ENV } from "../env";
 
 type HTTPMethods = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
@@ -10,12 +9,12 @@ interface FetchOptions {
 }
 
 const http = async <T>({ route, method, body }: FetchOptions): Promise<T> => {
-  const response = await fetch(`${API_BASE_URL}/${route}`, {
+  const response = await fetch(`${ENV.Q_API_BASE_URL}/${route}`, {
     body,
     headers: {
       "Content-Type": "application/json",
     },
-    method: method ?? api.GET_METHOD,
+    method: method ?? ENV.Q_DEFAULT_METHOD,
   });
 
   if (response.ok) {

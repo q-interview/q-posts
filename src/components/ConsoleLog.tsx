@@ -16,7 +16,7 @@ const ConsoleLog: FC<ConsoleLogProps> = ({
     // I don't really like to have console logs left in my app, given this specific case
     // I had just disabled eslint for this part of the app!
     //eslint-disable-next-line
-    console.log(`${consoleMessage} - ${componentName}`);
+    console.log(`${consoleMessage} ${componentName}`);
   }, [componentName, consoleMessage]);
 
   return <>{children}</>;
