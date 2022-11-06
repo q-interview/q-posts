@@ -38,6 +38,23 @@ Posts regarding latest and greatest in the tech world!
 - Once the PR created Vercel bot will automatically create and deploy preview of the app
 - After the merge of PR if there are no major changes to the preview that was merged that preview will be promoted to production!
 
+## Env files
+As it is in the code, there is an file in the code called .env.example which is a starting point for developing, those values are changable and if you'd like to change them and/or improve them please submit a PR like this 
+
+- Inside of the @types/index.d.ts
+```ts
+
+interface ImportMetaEnv {
+  readonly Q_API_BASE_URL: string;
+  ...
+  readonly Q_NEW_ENTRY: string
+}
+
+```
+- After that you will have intelisense for the `import.meta.env`, but more importantly you will add new entry (Don't forget to add it to env.example)
+- After that issue a PR with comment NEEDS TO BE ADDED IN ENV IN VERCEL so that I can add it to Vercel config!
+- Once I update it in Vercel, the PR will be testable!
+
 ## Third party usage
 
 All the packages used have MIT license
