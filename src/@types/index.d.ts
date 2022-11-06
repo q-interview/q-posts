@@ -23,13 +23,3 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
-
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv extends ImportMetaEnv {
-      readonly JEST_IS_NOT_COMPLICATED: string;
-    }
-  }
-}
-
-export {};

@@ -35,7 +35,7 @@ export default function usePagination<T>({
         setLoading(true);
         setHasNextPage(false);
       } else {
-        setStart((prev) => prev + limit);
+        setStart((prev) => prev + +limit);
         setLoading(true);
       }
     },

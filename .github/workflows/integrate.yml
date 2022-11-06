@@ -17,9 +17,6 @@ jobs:
       - name: Installing dependencies
         run: yarn
 
-      - name: Run test
-        run: yarn test
-
       - name: Shadow build test
         run: yarn husky-build
 
